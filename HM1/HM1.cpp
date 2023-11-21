@@ -4,10 +4,13 @@
 template<typename T>
 class DinamicArray {
 public:
-    explicit DinamicArray(int u_size = 100) {
+    explicit DinamicArray(int u_size = 2) {
         size_ = 0;
         capacity = u_size;
         data = new T[capacity];
+    }
+    ~DinamicArray() {
+        delete[] data;
     }
     void push_back(T elem) {
         data[size_] = elem;
@@ -77,7 +80,6 @@ int main()
         std::cout << elem << " ";
     }
     std::cout << std::endl;
-    int b = a.at(8);
     for (auto& elem : a) {
         std::cout << elem << " ";
     }
